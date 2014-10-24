@@ -12,8 +12,8 @@ packages:
   - kurento-media-server@5.0.4
 script: |
   sudo apt-get update -y
-  sudo apt-get install -y wget python-software-properties
-  sudo add-apt-repository ppa:kurento/kurento -y
+  sudo apt-get install -y wget
+  echo "deb http://ppa.launchpad.net/kurento/kurento/ubuntu trusty main\ndeb-src http://ppa.launchpad.net/kurento/kurento/ubuntu trusty main" > /etc/apt/sources.list.d/kurento.list
   wget -O - http://ubuntu.kurento.org/kurento.gpg.key | sudo apt-key add -
   sudo apt-get update -y
   sudo apt-get install kurento-media-server -y --force-yes
