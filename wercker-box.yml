@@ -1,0 +1,24 @@
+name: kurento-media-server
+version: 0.1.0
+inherits: ruudk/ubuntu14.04@1.0.0
+type: service
+platform: ubuntu@12.04
+description: wercker box for kurento-media-server an open source media server
+keywords:
+  - kurento
+  - media server
+  - webrtc
+packages:
+  - kurento-media-server@5.0.4
+script: |
+  sudo apt-get update -y
+  sudo apt-get install -y wget python-software-properties
+  sudo add-apt-repository ppa:kurento/kurento -y
+  wget -O - http://ubuntu.kurento.org/kurento.gpg.key | sudo apt-key add -
+  sudo apt-get update -y
+  sudo apt-get install kurento-media-server -y --force-yes
+env:
+  WERCKER_KURENTO_MEDIA_SERVER_PORT: 8888
+  WERCKER_KURENTO_MEDIA_SERVER_HOST: $$HOST$$
+  WERCKER_KURENTO_MEDIA_SERVER_URL: ws://$$HOST$$:8888/kurento
+  WERCKER_KURENTO_MEDIA_SERVER_VERSION: "5.0.4"
