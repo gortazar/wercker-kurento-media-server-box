@@ -13,7 +13,7 @@ packages:
 script: |
   sudo apt-get update -y
   sudo apt-get install -y wget software-properties-common
-  sudo add-apt-repository ppa:kurento/kurento
+  sudo add-apt-repository -y ppa:kurento/kurento
   wget -O - http://ubuntu.kurento.org/kurento.gpg.key | sudo apt-key add -
   sudo apt-get update -y
   sudo apt-get install kurento-media-server -y --force-yes
